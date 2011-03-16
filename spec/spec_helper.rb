@@ -8,6 +8,12 @@ require 'capybara/rspec'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
+module LinkingHelpers
+  def link_to(url, options={})
+    Capybara::RSpecMatchers::HaveMatcher.new(:css, "a[href=#{url.inspect}]", options)
+  end
+end
+
 RSpec.configure do |config|
   # == Mock Framework
   #
@@ -37,4 +43,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.include LinkingHelpers
 end
