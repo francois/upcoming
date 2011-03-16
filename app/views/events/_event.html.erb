@@ -1,3 +1,4 @@
-<li class="event">
+<li class="<%= dom_class(event) %>" id="<%= dom_id(event) %>">
   <%= link_to event.name, event.url %>
+  <%= link_to "Register", new_event_registration_path(event) %>
 </li>
