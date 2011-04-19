@@ -1,0 +1,15 @@
+<%= form_for @event do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br/>
+
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <br/>
+
+  <%= f.label :start_at %>
+  <%= f.datetime_select :start_at %>
+  <br/>
+
+  <%= f.submit %>
+<% end %>

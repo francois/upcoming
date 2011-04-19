@@ -12,6 +12,14 @@ module LinkingHelpers
   def have_link_to(url, options={})
     Capybara::RSpecMatchers::HaveMatcher.new(:css, "a[href=#{url.inspect}]", options)
   end
+
+  def have_form_to(url, options={})
+    Capybara::RSpecMatchers::HaveMatcher.new(:css, "form[action=#{url.inspect}]", options)
+  end
+
+  def have_input_for(field, options={})
+    Capybara::RSpecMatchers::HaveMatcher.new(:css, "input[name*=#{field}]", options)
+  end
 end
 
 RSpec.configure do |config|
