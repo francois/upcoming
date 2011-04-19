@@ -1,0 +1,30 @@
+label{
+  float: left;
+  width: 120px;
+  font-weight: bold;
+}
+
+input, textarea{
+  width: 180px;
+  margin-bottom: 5px;
+}
+
+textarea{
+  width: 250px;
+  height: 150px;
+}
+
+.boxes{
+  width: 1em;
+}
+
+input[type=submit] {
+  margin-left: 120px;
+  margin-top: 15px;
+  width: 140px;
+}
+
+br{
+  clear: left;
+}
+
