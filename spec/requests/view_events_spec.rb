@@ -8,13 +8,13 @@ feature "View Events" do
   end
 
   scenario "when there is one event" do
-    Event.create!(:name => "Montreal.rb", :start_at => "2011-09-13 18:30-0400", :url => "http://montrealonrails.com/")
+    event = Event.create!(:name => "Montreal.rb", :start_at => "2011-09-13 18:30-0400", :url => "http://montrealonrails.com/")
 
     visit "/"
     page.should have_css(".upcoming.events")
     within(:css, ".upcoming.events") do
       page.should have_css("li", :text => "Montreal.rb", :count => 1)
-      page.should have_link_to("http://montrealonrails.com/")
+      page.should have_link_to(event_path(event))
     end
   end
 
