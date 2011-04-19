@@ -22,5 +22,7 @@ feature "Create Events" do
     fill_in :name, :with => "Montreal.rb"
     fill_in :url, :with => "http://montrealonrails.com/"
     click_button :submit
+
+    current_path.should == "/"
   end
 end
