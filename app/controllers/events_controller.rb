@@ -11,4 +11,9 @@ class EventsController < ApplicationController
     @event = Event.create!(params[:event])
     redirect_to root_path
   end
+
+  def show
+    @event = Event.find(params[:id])
+    @attendee = @event.attendees.build(:person => Person.new)
+  end
 end

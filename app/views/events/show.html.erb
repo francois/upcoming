@@ -1,0 +1,11 @@
+<%= form_for([@event, @attendee]) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br/>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <br/>
+
+  <%= f.submit %>
+<% end %>

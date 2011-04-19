@@ -23,4 +23,20 @@ describe EventsController do
     end
   end
 
+  describe "GET :show" do
+    let :event do
+      stub_model(Event)
+    end
+
+    before(:each) do
+      Event.stub(:find).and_return(event)
+    end
+
+    it "should instantiate an Attendee" do
+      Attendee.should_receive(:new)
+
+      get "show", :id => event.id
+    end
+  end
+
 end
