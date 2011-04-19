@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Event do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should build and return a new attendee on demand" do
+    subject.build_attendee.should be_kind_of(Attendee)
+  end
 end
