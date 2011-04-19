@@ -14,6 +14,6 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @attendee = @event.attendees.build(:person => Person.new)
+    @attendee = @event.build_attendee
   end
 end

@@ -37,7 +37,7 @@ describe EventsController do
     end
 
     it "should instantiate an Attendee" do
-      @event.should_receive(:build_attendee).and_return( attendee )
+      event.should_receive(:build_attendee).and_return( attendee )
 
       get "show", :id => event.id
     end
