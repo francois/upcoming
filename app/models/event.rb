@@ -6,7 +6,9 @@ class Event < ActiveRecord::Base
   end
 
   def create_attendee(attrs)
-    person = Person.find_or_create_by_email(attrs[:email], attrs)
-    attendees.create!(:person => person)
+    Person.transaction do
+      person = Person.find_or_create_by_email(attrs[:email], attrs)
+      attendees.create!(:person => person)
+    end
   end
 end
