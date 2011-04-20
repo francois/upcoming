@@ -1,5 +1,7 @@
 Upcoming::Application.routes.draw do
 
+  get "attendees/create"
+
   resources :events do
     resources :attendees
   end
