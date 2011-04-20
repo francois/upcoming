@@ -11,4 +11,14 @@ describe Event do
       subject.create_attendee(:name => "Francois", :email => "francois@teksol.info")
     end
   end
+
+  context "given a person with the same email address exists" do
+    it "should reuse the existing person" do
+      subject.save!
+
+      Person.create!(:name => "francois", :email => "francois@teksol.info")
+      subject.create_attendee(:name => "francois", :email => "francois@teksol.info")
+      Person.count.should == 1
+    end
+  end
 end

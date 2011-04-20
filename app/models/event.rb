@@ -6,6 +6,7 @@ class Event < ActiveRecord::Base
   end
 
   def create_attendee(attrs)
-    attendees.create!(:person => Person.new(attrs))
+    person = Person.find_or_create_by_email(attrs[:email], attrs)
+    attendees.create!(:person => person)
   end
 end
