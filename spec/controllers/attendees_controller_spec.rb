@@ -13,7 +13,7 @@ describe AttendeesController do
 
     it "should build an attendee" do
       Event.stub(:find).and_return( event )
-      event.should_receive(:build_attendee).and_return(attendee)
+      event.should_receive(:create_attendee).and_return(attendee)
       post :create, :event_id => event.id, :attendee => {:name => "Francois", :email => "francois@teksol.info"}
     end
   end
